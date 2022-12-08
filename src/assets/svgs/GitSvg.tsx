@@ -8,7 +8,7 @@ interface GitSvgProps {
 
 function GitSvg({ width, height, fill }: GitSvgProps) {
   return (
-    <Box width={width} height={height}>
+    <Box width={width} height={height} marginBottom="7px">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="100%"
