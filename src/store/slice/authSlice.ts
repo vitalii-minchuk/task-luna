@@ -53,6 +53,7 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     connectShopSuccess(state, action: PayloadAction<SubmitAuthFormResponse>) {
+      console.log(action.payload);
       if (action.payload.message === `Welcome ${state.user?.name}!`) {
         state.accessToken = 'Hello';
       } else {

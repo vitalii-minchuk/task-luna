@@ -1,17 +1,25 @@
 import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material';
-import { Dispatch, SetStateAction } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import checkMark from '../../../assets/images/checkMark.png';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
+import { connectShop, registerUser } from '../../../store/slice/authSlice';
 
-interface GoogleConnectionResultProps {
-  setStep: Dispatch<SetStateAction<number>>;
-}
-
-function FinalStep({ setStep }: GoogleConnectionResultProps) {
+function FinalStep() {
+  const { user, accessToken } = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
   const isTablet = useMediaQuery('(max-width:834px)');
+  const navigate = useNavigate();
 
   const handleContinue = () => {
-    setStep((prevStep) => prevStep + 1);
+    dispatch(connectShop());
   };
+
+  useEffect(() => {
+    if (accessToken) {
+      navigate('/');
+    }
+  }, [accessToken, navigate]);
 
   return (
     <Stack
@@ -47,7 +55,7 @@ function FinalStep({ setStep }: GoogleConnectionResultProps) {
           fontSize="16px"
           pb="8px"
         >
-          Response received
+          {`${user?.name}, You’re ready to go!`}
         </Typography>
         <Typography
           align="center"
@@ -56,8 +64,8 @@ function FinalStep({ setStep }: GoogleConnectionResultProps) {
           fontSize="14px"
           pb="24px"
         >
-          Thank you for your interest in Chad! We’ll be hard at work building
-          integrations to support your email client.
+          Chad doesn’t support mobile browsers. To access your dashboard, login
+          from your laptop or desktop computer.
         </Typography>
         <Button
           sx={{
@@ -73,7 +81,7 @@ function FinalStep({ setStep }: GoogleConnectionResultProps) {
           type="submit"
           onClick={handleContinue}
         >
-          Done
+          Ok
         </Button>
       </Stack>
     </Stack>

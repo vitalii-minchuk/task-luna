@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material';
+import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
 import { Dispatch, SetStateAction } from 'react';
 import ChadLogoSVG from '../../../assets/svgs/ChadLogoSVG';
 import TickSVG from '../../../assets/svgs/TickSVG';

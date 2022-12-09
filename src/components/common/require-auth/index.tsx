@@ -9,9 +9,9 @@ interface RequireAuthProps {
 function RequireAuth({ children }: RequireAuthProps) {
   const { accessToken } = useAppSelector((state) => state.auth);
 
-  if (!accessToken) {
-    return <Navigate to="/auth" />;
-  }
+  // if (!accessToken) {
+  //   return <Navigate to="/auth" />;
+  // }
 
   return children;
 }
