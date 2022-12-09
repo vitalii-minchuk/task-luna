@@ -1,12 +1,18 @@
 import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material';
+import { Dispatch, SetStateAction } from 'react';
 import { Shop } from '../../../types';
 
 interface ShopConnectionResultProps {
   shop: Shop;
+  setStep: Dispatch<SetStateAction<number>>;
 }
 
-function ShopConnectionResult({ shop }: ShopConnectionResultProps) {
+function ShopConnectionResult({ shop, setStep }: ShopConnectionResultProps) {
   const isTablet = useMediaQuery('(max-width:834px)');
+
+  const handleContinue = () => {
+    setStep((prevStep) => prevStep + 1);
+  };
 
   return (
     <Stack
@@ -44,7 +50,7 @@ function ShopConnectionResult({ shop }: ShopConnectionResultProps) {
           fontSize="16px"
           pb="8px"
         >
-          Use your desktop to access Chad
+          Store Connected
         </Typography>
         <Typography
           align="center"
@@ -53,8 +59,7 @@ function ShopConnectionResult({ shop }: ShopConnectionResultProps) {
           fontSize="14px"
           pb="24px"
         >
-          Chad doesn’t support mobile browsers. To access your dashboard, login
-          from your laptop or desktop computer.
+          {`Chad is now able to manage customer support requests for ${shop?.shop_name}.`}
         </Typography>
         <Button
           sx={{
@@ -68,8 +73,9 @@ function ShopConnectionResult({ shop }: ShopConnectionResultProps) {
           }}
           variant="contained"
           type="submit"
+          onClick={handleContinue}
         >
-          Ok
+          Continue
         </Button>
         <Typography
           pt="8px"
@@ -78,7 +84,7 @@ function ShopConnectionResult({ shop }: ShopConnectionResultProps) {
           lineHeight="18px"
           fontSize="12px"
         >
-          Not xyz@triceps.com?
+          Wrong store?
           <Typography
             color="skyblue"
             lineHeight="18px"
@@ -92,7 +98,7 @@ function ShopConnectionResult({ shop }: ShopConnectionResultProps) {
             }}
           >
             {' '}
-            Login
+            Connect another one
           </Typography>
         </Typography>
       </Stack>

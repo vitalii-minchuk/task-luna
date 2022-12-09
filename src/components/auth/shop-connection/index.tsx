@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-useless-fragment */
 import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material';
 import { Dispatch, SetStateAction } from 'react';
 import ChadLogoSVG from '../../../assets/svgs/ChadLogoSVG';
@@ -26,7 +25,7 @@ function ShopConnection({ step, setStep }: ShopConnectionProps) {
   return (
     <>
       {shop ? (
-        <ShopConnectionResult shop={shop} />
+        <ShopConnectionResult shop={shop} setStep={setStep} />
       ) : (
         <Stack
           width={isTablet ? '100%' : '540px'}

@@ -6,7 +6,7 @@ interface GoogleConnectionResultProps {
   setStep: Dispatch<SetStateAction<number>>;
 }
 
-function FinalStep({ setStep }: GoogleConnectionResultProps) {
+function GoogleConnectionResult({ setStep }: GoogleConnectionResultProps) {
   const isTablet = useMediaQuery('(max-width:834px)');
 
   const handleContinue = () => {
@@ -80,4 +80,4 @@ function FinalStep({ setStep }: GoogleConnectionResultProps) {
   );
 }
 
-export default FinalStep;
+export default GoogleConnectionResult;
