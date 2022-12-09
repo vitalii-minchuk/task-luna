@@ -1,3 +1,9 @@
+export type User = {
+  name: string;
+  email: string;
+  password: string;
+};
+
 export type AuthStateType = {
   accessToken: string;
   isLoading: boolean;
@@ -5,12 +11,6 @@ export type AuthStateType = {
   user: User | null;
   shop: Shop | null;
   google_token: string | null;
-};
-
-export type User = {
-  name: string;
-  email: string;
-  password: string;
 };
 
 export type RegisterUserInput = {

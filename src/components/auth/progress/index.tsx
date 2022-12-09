@@ -13,7 +13,7 @@ function ProgressStepper({ step, setStep }: ProgressStepperProps) {
   return isDesktop ? (
     <ProgressMobileStepper step={step} setStep={setStep} />
   ) : (
-    <ProgressDesktopStepper />
+    <ProgressDesktopStepper step={step} setStep={setStep} />
   );
 }
 

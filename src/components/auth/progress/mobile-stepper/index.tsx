@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import { useTheme } from '@mui/material/styles';
-import MobileStepper from '@mui/material/MobileStepper';
-import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import Button from '@mui/material/Button';
+import MobileStepper from '@mui/material/MobileStepper';
+import ProgressMobileStepperStyles from './ProgressMobileStepperStyles';
 
 interface ProgressMobileStepperProps {
   step: number;
@@ -16,8 +16,6 @@ export default function ProgressMobileStepper({
   step,
   setStep,
 }: ProgressMobileStepperProps) {
-  const theme = useTheme();
-
   const handleNext = () => {
     setStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -27,35 +25,41 @@ export default function ProgressMobileStepper({
   };
 
   return (
-    <>
-      <Typography>Step {step + 1}</Typography>
-      <MobileStepper
-        variant="progress"
-        steps={4}
-        position="static"
-        activeStep={step}
-        sx={{ maxWidth: 400, flexGrow: 1 }}
-        nextButton={
-          <Button size="small" onClick={handleNext} disabled={step === 3}>
-            Next
-            {theme.direction === 'rtl' ? (
-              <KeyboardArrowLeft />
-            ) : (
+    <Box sx={ProgressMobileStepperStyles.wrapper}>
+      <Typography color="#4F637D" lineHeight="18px" fontSize="12px">
+        Step {step + 1} of 4
+      </Typography>
+      <Box position="relative">
+        <MobileStepper
+          variant="progress"
+          steps={4}
+          position="static"
+          activeStep={step}
+          sx={ProgressMobileStepperStyles.progress}
+          nextButton={
+            <Button
+              sx={ProgressMobileStepperStyles.nextButton}
+              size="small"
+              onClick={handleNext}
+              disabled={step === 3}
+            >
+              Next
               <KeyboardArrowRight />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button size="small" onClick={handleBack} disabled={step === 0}>
-            {theme.direction === 'rtl' ? (
-              <KeyboardArrowRight />
-            ) : (
+            </Button>
+          }
+          backButton={
+            <Button
+              sx={ProgressMobileStepperStyles.backButton}
+              size="small"
+              onClick={handleBack}
+              disabled={step === 0}
+            >
               <KeyboardArrowLeft />
-            )}
-            Back
-          </Button>
-        }
-      />
-    </>
+              Back
+            </Button>
+          }
+        />
+      </Box>
+    </Box>
   );
 }

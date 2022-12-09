@@ -10,8 +10,8 @@ function AuthStepper({ step }: AuthStepperProps) {
   return (
     <>
       {step === 0 && <RegisterUserForm />}
-      {step === 1 && <ShopConnection />}
-      {step === 2 && <GoogleConnection />}
+      {step === 1 && <GoogleConnection />}
+      {step === 2 && <ShopConnection />}
     </>
   );
 }

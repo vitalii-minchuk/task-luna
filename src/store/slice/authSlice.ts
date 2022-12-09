@@ -1,11 +1,16 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AuthStateType, RegisterUserInput, Shop } from '../../types';
+import {
+  AuthStateType,
+  RegisterUserInput,
+  Shop,
+  SubmitAuthFormResponse,
+} from '../../types';
 
 const initialState: AuthStateType = {
   isLoading: false,
   fetchError: '',
-  accessToken: 'fff',
+  accessToken: '',
   user: null,
   shop: null,
   google_token: null,
@@ -17,6 +22,7 @@ const authSlice = createSlice({
   reducers: {
     registerUser(state, actions: PayloadAction<RegisterUserInput>) {
       state.isLoading = true;
+      state.fetchError = '';
       state.user = actions.payload;
     },
     registerUserSuccess(state, actions: PayloadAction<Shop>) {
@@ -29,6 +35,7 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
     fetchGoogleToken(state) {
+      state.fetchError = '';
       state.isLoading = true;
     },
     fetchGoogleTokenSuccess(state, actions: PayloadAction<string>) {
@@ -40,10 +47,15 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
     connectShop(state) {
+      state.fetchError = '';
       state.isLoading = true;
     },
-    connectShopSuccess(state) {
-      state.accessToken = 'Hello';
+    connectShopSuccess(state, action: PayloadAction<SubmitAuthFormResponse>) {
+      if (action.payload.message === `Welcome ${state.user?.name}!`) {
+        state.accessToken = 'Hello';
+      } else {
+        state.fetchError = 'Something went wrong';
+      }
       state.isLoading = false;
     },
     connectShopFailure(state, actions: PayloadAction<string>) {

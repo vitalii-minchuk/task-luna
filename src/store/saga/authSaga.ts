@@ -1,6 +1,11 @@
 import { put, select, takeEvery } from '@redux-saga/core/effects';
 import API from '../../api';
-import { AuthStateType, Shop, SubmitAuthFormInput } from '../../types';
+import {
+  AuthStateType,
+  Shop,
+  SubmitAuthFormInput,
+  SubmitAuthFormResponse,
+} from '../../types';
 import {
   connectShop,
   connectShopSuccess,
@@ -48,8 +53,8 @@ export function* connectShopSaga() {
   };
 
   try {
-    yield API.register(payload);
-    yield put(connectShopSuccess());
+    const result: SubmitAuthFormResponse = yield API.register(payload);
+    yield put(connectShopSuccess(result));
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {

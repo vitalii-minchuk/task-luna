@@ -1,7 +1,6 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import {
   FetchGoogleDataResponse,
-  RegisterUserInput,
   Shop,
   SubmitAuthFormInput,
   SubmitAuthFormResponse,
@@ -24,12 +23,11 @@ const API = {
     return data.token;
   },
   register: async (payload: SubmitAuthFormInput) => {
-    console.log(payload);
     const { data } = await client.post<
       SubmitAuthFormInput,
       AxiosResponse<SubmitAuthFormResponse>
     >(`/register`, payload);
-    console.log(data);
+
     return data;
   },
 };
