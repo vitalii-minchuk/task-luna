@@ -1,10 +1,8 @@
 const ProgressMobileStepperStyles = {
   wrapper: {
-    pb: '32px',
     background: '#fff',
     mx: 'auto',
     width: '100%',
-    px: '32px',
   },
   progress: {
     '& .MuiMobileStepper-progress': {

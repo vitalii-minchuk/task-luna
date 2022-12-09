@@ -20,10 +20,12 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    registerUser(state, actions: PayloadAction<RegisterUserInput>) {
+    setUserData(state, actions: PayloadAction<RegisterUserInput>) {
+      state.user = actions.payload;
+    },
+    registerUser(state) {
       state.isLoading = true;
       state.fetchError = '';
-      state.user = actions.payload;
     },
     registerUserSuccess(state, actions: PayloadAction<Shop>) {
       state.shop = actions.payload;
@@ -66,6 +68,7 @@ const authSlice = createSlice({
 });
 
 export const {
+  setUserData,
   registerUser,
   registerUserSuccess,
   registerUserFailure,
