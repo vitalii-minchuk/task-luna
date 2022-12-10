@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+
 import Layout from './components/common/layout';
 import RequireAuth from './components/common/require-auth';
 import Toaster from './components/common/Toaster';

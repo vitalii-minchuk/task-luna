@@ -1,5 +1,6 @@
-import { Fade, Grow, Stack, Typography, useMediaQuery } from '@mui/material';
 import { useEffect } from 'react';
+import { Grow, Stack, Typography, useMediaQuery } from '@mui/material';
+
 import ChadLogoSVG from '../../../assets/svgs/ChadLogoSVG';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { setDisabledNext } from '../../../store/slice/stepperSlice';

@@ -1,12 +1,12 @@
 import {
   Box,
   Button,
-  Fade,
   Grow,
   Stack,
   Typography,
   useMediaQuery,
 } from '@mui/material';
+
 import { useAppDispatch } from '../../../hooks';
 import { goNext } from '../../../store/slice/stepperSlice';
 import { Shop } from '../../../types';

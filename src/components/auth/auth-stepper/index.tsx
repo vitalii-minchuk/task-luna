@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
 import { useAppSelector } from '../../../hooks';
 import FinalStep from '../final-step';
 import GoogleConnection from '../google-connection';

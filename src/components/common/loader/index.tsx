@@ -1,8 +1,6 @@
-import { Box, CircularProgress, Stack, useMediaQuery } from '@mui/material';
+import { CircularProgress, Stack } from '@mui/material';
 
 function Loader() {
-  const isTablet = useMediaQuery('(max-width:834px)');
-
   return (
     <Stack
       justifyContent="center"

@@ -1,13 +1,10 @@
-import { useLocation } from 'react-router-dom';
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
 
 import GitSvg from '../../../assets/svgs/GitSvg';
 
 function Header() {
-  const { pathname } = useLocation();
-
   return (
-    <Box bgcolor="#0288d1">
+    <Box component="header" bgcolor="#0288d1">
       <Container maxWidth="lg">
         <Stack
           height="50px"

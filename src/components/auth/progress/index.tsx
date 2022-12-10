@@ -1,4 +1,5 @@
 import { useMediaQuery } from '@mui/material';
+
 import ProgressDesktopStepper from './desktop-stepper';
 import ProgressMobileStepper from './mobile-stepper';
 

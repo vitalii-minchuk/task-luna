@@ -6,6 +6,7 @@ import {
   Typography,
   useMediaQuery,
 } from '@mui/material';
+
 import checkMark from '../../../assets/images/checkMark.png';
 import { useAppDispatch } from '../../../hooks';
 import { goNext } from '../../../store/slice/stepperSlice';

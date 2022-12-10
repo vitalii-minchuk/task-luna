@@ -1,4 +1,5 @@
 import { Box, Button } from '@mui/material';
+
 import GoogleLogoSVG from '../../../assets/svgs/GoogleLogoSVG';
 
 interface GoogleButtonProps {

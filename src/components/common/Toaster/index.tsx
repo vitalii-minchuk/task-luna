@@ -1,5 +1,6 @@
-import { Box, Slide, SlideProps, Snackbar } from '@mui/material';
 import { SyntheticEvent, useEffect, useState } from 'react';
+import { Box, Slide, SlideProps, Snackbar } from '@mui/material';
+
 import { useAppSelector } from '../../../hooks';
 
 function TransitionLeft(props: SlideProps) {

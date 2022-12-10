@@ -1,13 +1,13 @@
+import { useEffect } from 'react';
 import {
   Box,
   Button,
-  Fade,
   Grow,
   Stack,
   Typography,
   useMediaQuery,
 } from '@mui/material';
-import { useEffect } from 'react';
+
 import ChadLogoSVG from '../../../assets/svgs/ChadLogoSVG';
 import TickSVG from '../../../assets/svgs/TickSVG';
 import CHOP_INFO from '../../../constants/shop-connection-info';

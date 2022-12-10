@@ -1,8 +1,7 @@
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import { Box, Typography } from '@mui/material';
-import Button from '@mui/material/Button';
-import MobileStepper from '@mui/material/MobileStepper';
+import { Box, Button, MobileStepper, Typography } from '@mui/material';
+
 import { useAppDispatch, useAppSelector } from '../../../../hooks';
 import { goBack, goNext } from '../../../../store/slice/stepperSlice';
 import ProgressMobileStepperStyles from './ProgressMobileStepperStyles';

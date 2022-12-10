@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Box, Grow, Stack, Typography, useMediaQuery } from '@mui/material';
 import { useEffect } from 'react';
+import { Box, Grow, Stack, Typography, useMediaQuery } from '@mui/material';
+
 import ChadLogoSVG from '../../../assets/svgs/ChadLogoSVG';
 import TickSVG from '../../../assets/svgs/TickSVG';
 import GOOGLE_INFO from '../../../constants/google-connection-info';

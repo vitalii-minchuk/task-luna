@@ -1,15 +1,13 @@
+import { Dispatch, SetStateAction } from 'react';
 import {
   Button,
   Dialog,
   DialogActions,
-  DialogContent,
-  DialogContentText,
   DialogTitle,
   Stack,
   Typography,
   useMediaQuery,
 } from '@mui/material';
-import { Dispatch, SetStateAction } from 'react';
 
 interface StartModalProps {
   open: boolean;

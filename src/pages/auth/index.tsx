@@ -7,9 +7,7 @@ import { useAppSelector } from '../../hooks';
 import authPageStyles from './authPageStyles';
 
 function AuthPage() {
-  const { isLoading, fetchError, fetchSuccess } = useAppSelector(
-    (state) => state.auth
-  );
+  const { isLoading } = useAppSelector((state) => state.auth);
   const isDesktop = useMediaQuery('(max-width:1194px)');
 
   return (

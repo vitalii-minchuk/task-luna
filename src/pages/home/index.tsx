@@ -1,5 +1,6 @@
-import { Box, Container } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { Box, Container } from '@mui/material';
+
 import StartModal from '../../components/common/modals/StartModal';
 import homePageStyles from './homePageStyles';
 
