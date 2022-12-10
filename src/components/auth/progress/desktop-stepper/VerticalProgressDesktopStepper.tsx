@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import {
   Box,
@@ -11,23 +10,17 @@ import {
 } from '@mui/material';
 
 import STEPS from '../../../../constants/steps';
+import { useAppDispatch, useAppSelector } from '../../../../hooks';
+import { goBack, goNext } from '../../../../store/slice/stepperSlice';
 import ProgressDesktopStepperStyles from './ProgressDesktopStepperStyles';
 
-interface VerticalProgressDesktopStepperProps {
-  step: number;
-  setStep: Dispatch<SetStateAction<number>>;
-}
-function VerticalProgressDesktopStepper({
-  step,
-  setStep,
-}: VerticalProgressDesktopStepperProps) {
-  const handleNext = () => {
-    setStep((prevStep) => prevStep + 1);
-  };
+function VerticalProgressDesktopStepper() {
+  const { step, disabledNext } = useAppSelector((state) => state.stepper);
+  const dispatch = useAppDispatch();
 
-  const handleBack = () => {
-    setStep((prevStep) => prevStep - 1);
-  };
+  const handleNext = () => dispatch(goNext());
+
+  const handleBack = () => dispatch(goBack());
 
   return (
     <Box width="364px">
@@ -72,7 +65,7 @@ function VerticalProgressDesktopStepper({
           }}
           size="small"
           onClick={handleNext}
-          disabled={step === 3}
+          disabled={disabledNext}
         >
           Next
           <KeyboardArrowRight />

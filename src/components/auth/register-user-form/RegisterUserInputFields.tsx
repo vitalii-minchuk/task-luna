@@ -12,6 +12,7 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useAppDispatch } from '../../../hooks';
 import { setUserData } from '../../../store/slice/authSlice';
+import { setDisabledNext } from '../../../store/slice/stepperSlice';
 import { RegisterUserInput } from '../../../types';
 import registerUserValidationSchema from '../../../validation';
 import RegisterUserStyles from './RegisterUserStyles';
@@ -32,6 +33,7 @@ function RegisterUserInputFields() {
       validationSchema: registerUserValidationSchema,
       onSubmit: (payload, actions) => {
         dispatch(setUserData(payload));
+        dispatch(setDisabledNext(false));
         actions.resetForm();
       },
     });

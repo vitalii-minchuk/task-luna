@@ -7,8 +7,8 @@ import {
 } from '../types';
 
 const client = axios.create({
-  // baseURL: process.env.REACT_APP_BASE_URL,
-  baseURL: 'https://vast-basin-98801.herokuapp.com',
+  baseURL: import.meta.env.VITE_APP_BASE_URL,
+  // baseURL: 'https://vast-basin-98801.herokuapp.com',
 });
 
 const API = {

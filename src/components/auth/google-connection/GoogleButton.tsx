@@ -4,6 +4,7 @@ import GoogleLogoSVG from '../../../assets/svgs/GoogleLogoSVG';
 interface GoogleButtonProps {
   handleGoogleConnection: () => void;
 }
+
 function GoogleButton({ handleGoogleConnection }: GoogleButtonProps) {
   return (
     <Button

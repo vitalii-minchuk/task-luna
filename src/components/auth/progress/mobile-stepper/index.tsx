@@ -1,28 +1,19 @@
-import { Dispatch, SetStateAction } from 'react';
-
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import { Box, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import MobileStepper from '@mui/material/MobileStepper';
+import { useAppDispatch, useAppSelector } from '../../../../hooks';
+import { goBack, goNext } from '../../../../store/slice/stepperSlice';
 import ProgressMobileStepperStyles from './ProgressMobileStepperStyles';
 
-interface ProgressMobileStepperProps {
-  step: number;
-  setStep: Dispatch<SetStateAction<number>>;
-}
+export default function ProgressMobileStepper() {
+  const { step, disabledNext } = useAppSelector((state) => state.stepper);
+  const dispatch = useAppDispatch();
 
-export default function ProgressMobileStepper({
-  step,
-  setStep,
-}: ProgressMobileStepperProps) {
-  const handleNext = () => {
-    setStep((prevActiveStep) => prevActiveStep + 1);
-  };
+  const handleNext = () => dispatch(goNext());
 
-  const handleBack = () => {
-    setStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  const handleBack = () => dispatch(goBack());
 
   return (
     <Box sx={ProgressMobileStepperStyles.wrapper}>
@@ -41,7 +32,7 @@ export default function ProgressMobileStepper({
               sx={ProgressMobileStepperStyles.nextButton}
               size="small"
               onClick={handleNext}
-              disabled={step === 3}
+              disabled={disabledNext}
             >
               Next
               <KeyboardArrowRight />

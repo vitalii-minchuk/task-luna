@@ -1,27 +1,21 @@
-import { Dispatch, SetStateAction } from 'react';
-import { Stack } from '@mui/material';
+import { Grow, Stack } from '@mui/material';
 
 import HorizontalProgressDesktopStepper from './HorizontalProgressDesktopStepper';
-import VerticalProgressDesktopStepper from './VerticalProgressDesktopStepper';
 import ProgressDesktopStepperStyles from './ProgressDesktopStepperStyles';
+import VerticalProgressDesktopStepper from './VerticalProgressDesktopStepper';
 
-interface ProgressDesktopStepperProps {
-  step: number;
-  setStep: Dispatch<SetStateAction<number>>;
-}
-function ProgressDesktopStepper({
-  step,
-  setStep,
-}: ProgressDesktopStepperProps) {
+function ProgressDesktopStepper() {
   return (
-    <Stack
-      alignItems="center"
-      justifyContent="space-between"
-      sx={ProgressDesktopStepperStyles.wrapper}
-    >
-      <VerticalProgressDesktopStepper step={step} setStep={setStep} />
-      <HorizontalProgressDesktopStepper step={step} />
-    </Stack>
+    <Grow in mountOnEnter unmountOnExit>
+      <Stack
+        alignItems="center"
+        justifyContent="space-between"
+        sx={ProgressDesktopStepperStyles.wrapper}
+      >
+        <VerticalProgressDesktopStepper />
+        <HorizontalProgressDesktopStepper />
+      </Stack>
+    </Grow>
   );
 }
 export default ProgressDesktopStepper;

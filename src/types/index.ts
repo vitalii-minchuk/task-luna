@@ -8,6 +8,7 @@ export type AuthStateType = {
   accessToken: string;
   isLoading: boolean;
   fetchError: string;
+  fetchSuccess: string;
   user: User | null;
   shop: Shop | null;
   google_token: string | null;
@@ -38,4 +39,9 @@ export type SubmitAuthFormInput = RegisterUserInput & {
 export type SubmitAuthFormResponse = {
   status: string;
   message: string;
+};
+
+export type StepperStateType = {
+  step: number;
+  disabledNext: boolean;
 };
